@@ -108,6 +108,7 @@ function buildPortfolio() { //for a composer
   buildSearchBar();
 
   if (searchText != "" && searchText != null) buildSearchHeader();
+  console.log("SearchText:")
   console.log(searchText);
 
   let atLeastOneWork = false;
