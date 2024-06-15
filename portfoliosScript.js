@@ -9,7 +9,7 @@ let singleWork = "";
 
 let lastMiniWorkWasNorm = false;
 
-let theURLStem = window.location.origin + "/";
+let theURLStem = window.location.origin + "/WebTest/";
 
 const databaseColDeliminator = "\t";                                // what character separates the columns of the database.txt
 const databaseEntryDeliminator = "\n";                              // what character separates the rows of the database.txt
@@ -38,6 +38,7 @@ window.onload = function() {                                  // when the html l
   singleWork = urlParams.get('work');
 
   searchText = urlParams.get('search');
+  console.log("here?");
   console.log(window.location.href.split("?")[0]);
   console.log(theURLStem + "portfolios");
   if (window.location.href.split("?")[0] == theURLStem + "portfolios") checkToBuildPortfolio(checkToBuildPortfolio);               // start waiting for the async (?) GET for the database to return.
