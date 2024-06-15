@@ -38,6 +38,8 @@ window.onload = function() {                                  // when the html l
   singleWork = urlParams.get('work');
 
   searchText = urlParams.get('search');
+  console.log(window.location.href.split("?")[0]);
+  console.log(theURLStem + "portfolios");
   if (window.location.href.split("?")[0] == theURLStem + "portfolios") checkToBuildPortfolio(checkToBuildPortfolio);               // start waiting for the async (?) GET for the database to return.
   else if (window.location.href.split("?")[0] == theURLStem) checkToBuildFeaturedWorks(checkToBuildFeaturedWorks);
   else if (window.location.href.split("?")[0] == theURLStem + "work") checkToBuildSingleWork(checkToBuildSingleWork);
