@@ -24,7 +24,6 @@ databaseRequest.onreadystatechange = function() {
 databaseRequest.send();
 
 window.onload = function() {                                  // when the html loads...
-  console.log("OnLoad");// TEST
   let urlParams = new URLSearchParams(location.search);       //                        ...extract the url parameters "?search=[SEARCHTEXT]&who=[COMPOSER]"
 
   if (urlParams.get('who') == "Ben") {                        // N.B.: composer != who. The url uses the shortened name for elegance.
@@ -34,13 +33,9 @@ window.onload = function() {                                  // when the html l
   } else {
     composer = "";                                            // blank "" <=> either or neither composer.
   }
-  console.log(composer); // TEST
   singleWork = urlParams.get('work');
 
   searchText = urlParams.get('search');
-  console.log("here?");
-  console.log(window.location.href.split("?")[0]);
-  console.log(theURLStem + "portfolios");
   if (window.location.href.split("?")[0] == theURLStem + "portfolios") checkToBuildPortfolio(checkToBuildPortfolio);               // start waiting for the async (?) GET for the database to return.
   else if (window.location.href.split("?")[0] == theURLStem) checkToBuildFeaturedWorks(checkToBuildFeaturedWorks);
   else if (window.location.href.split("?")[0] == theURLStem + "work") checkToBuildSingleWork(checkToBuildSingleWork);
@@ -54,7 +49,6 @@ function reload() {                        // clears and repopulates the portfol
 
 
 function checkToBuildPortfolio(callbackToBuildPorfolio) {     // wait for the database.txt GET to return and be loaded into the worksArray...
-    console.log("checkToBuildPortfolio");
     if(!readyToBuild) {
        window.setTimeout(function () {console.log("waiting..."); callbackToBuildPorfolio(callbackToBuildPorfolio)}, 100); /* this checks the flag every 100 milliseconds*/
     } else {
@@ -63,7 +57,6 @@ function checkToBuildPortfolio(callbackToBuildPorfolio) {     // wait for the da
 }
 
 function checkToBuildFeaturedWorks(callbackToBuildFeaturedWorks) {     // wait for the database.txt GET to return and be loaded into the worksArray...
-    console.log("checkToBuildPortfolio");
     if(!readyToBuild) {
        window.setTimeout(function () {console.log("waiting..."); callbackToBuildFeaturedWorks(callbackToBuildFeaturedWorks)}, 100); /* this checks the flag every 100 milliseconds*/
     } else {
@@ -93,7 +86,6 @@ function buildSingleWork() {
 }
 
 function unpackTXTDatabase(rawDatabase) {                           // This recieves and processes the database.txt text to populate worksArray, then sets readyToBuild
-  console.log("Unpacking")
   rawDatabase = rawDatabase.replace(/"/g,"");                       // delete single " marks added by the database.
   rawDatabase = rawDatabase.replace(/''/g,"\"");                    // replace '' with ", for used intended double quotes
   dataBaseLines = rawDatabase.split(databaseEntryDeliminator);      // break up and populate workArray...
@@ -106,7 +98,6 @@ function unpackTXTDatabase(rawDatabase) {                           // This reci
     let nextWork = new Work(database[i]);
 
     worksArray.push(nextWork);
-    console.log(nextWork);
   }
   readyToBuild = true;
 }
@@ -370,7 +361,7 @@ function displayCannotFindWhatLookingForText(divId) {
   document.getElementById(divId).appendChild(cannotFindWhatLookingForText);
 }
 
-function buildComposerInfo(divId, name) {
+/*function buildComposerInfo(divId, name) {
   let composerTitle = document.createElement("h1");
   composerTitle.id = "composer_portfolio_title";
   let composerTitleText = document.createTextNode(name);
@@ -389,7 +380,7 @@ function buildComposerInfo(divId, name) {
 
   composerAboutBox.innerHTML = "<div id='composer_about_box'><p id='about_text'>"+composerAboutInnerHTML+"</p></div>";
   document.getElementById(divId).appendChild(composerAboutBox.firstChild);
-}
+}*/
 
 function buildSearchHeader() {
   let searchHeader = document.createElement("h2");
