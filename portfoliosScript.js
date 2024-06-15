@@ -14,7 +14,7 @@ const databaseColDeliminator = "\t";                                // what char
 const databaseEntryDeliminator = "\n";                              // what character separates the rows of the database.txt
 
 let databaseRequest = new XMLHttpRequest();                   // GETs the database.txt from the node server.
-databaseRequest.open('GET', '/database.txt');
+databaseRequest.open('GET', './database.txt');
 databaseRequest.onreadystatechange = function() {
   if (databaseRequest.readyState === 4){
     unpackTXTDatabase(databaseRequest.responseText);          // ...when it returns, start unpacking it.
@@ -372,7 +372,7 @@ function buildComposerInfo(divId, name) {
   let composerAboutInnerHTML = "";
 
   if (composer == "Benjamin Loomes") composerAboutInnerHTML = "Ben Loomes info here";
-  else composerAboutInnerHTML = "<img src='/images/pictures/Elden.jpg' class='about_image'>Elden Loomes is a 2nd year physics student, contemporary classical composer and all-round nerd."
+  else composerAboutInnerHTML = "<img src='./images/pictures/Elden.jpg' class='about_image'>Elden Loomes is a 2nd year physics student, contemporary classical composer and all-round nerd."
   + "<br><br>He writes an eclectic range of music, particularly specialising in works for large orchestra, and&mdash;at the other end of  the scale&mdash;contemplative works for solo cello. "
   + "When not working on these he might help around the house with some music for <a href='https://syrinscape.com/'>Syrinscape</a>, for whom he has written a modest respectable collection."
   + "<br><br>He is currently (well Jan 2021-ly) listening to a lot of Alfred Schnittke and Benjamin Britten, though will always fall back to some good-ol' Shostakovich."
