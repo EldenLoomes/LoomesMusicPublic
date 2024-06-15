@@ -23,7 +23,9 @@ databaseRequest.onreadystatechange = function() {
 databaseRequest.send();
 
 window.onload = function() {                                  // when the html loads...
+  console.log("OnLoad");
   let urlParams = new URLSearchParams(location.search);       //                        ...extract the url parameters "?search=[SEARCHTEXT]&who=[COMPOSER]"
+  console.log(urlParams);
   if (urlParams.get('who') == "Ben") {                        // N.B.: composer != who. The url uses the shortened name for elegance.
     composer = "Benjamin Loomes";
   } else if (urlParams.get('who') == "Elden") {
@@ -108,8 +110,6 @@ function buildPortfolio() { //for a composer
   buildSearchBar();
 
   if (searchText != "" && searchText != null) buildSearchHeader();
-  console.log("SearchText:")
-  console.log(searchText);
 
   let atLeastOneWork = false;
 
