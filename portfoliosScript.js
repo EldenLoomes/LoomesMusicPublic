@@ -24,7 +24,7 @@ databaseRequest.onreadystatechange = function() {
 databaseRequest.send();
 
 window.onload = function() {                                  // when the html loads...
-  console.log("OnLoad");
+  console.log("OnLoad");// TEST
   let urlParams = new URLSearchParams(location.search);       //                        ...extract the url parameters "?search=[SEARCHTEXT]&who=[COMPOSER]"
 
   if (urlParams.get('who') == "Ben") {                        // N.B.: composer != who. The url uses the shortened name for elegance.
@@ -34,7 +34,7 @@ window.onload = function() {                                  // when the html l
   } else {
     composer = "";                                            // blank "" <=> either or neither composer.
   }
-  console.log(composer);
+  console.log(composer); // TEST
   singleWork = urlParams.get('work');
 
   searchText = urlParams.get('search');
@@ -88,6 +88,7 @@ function buildSingleWork() {
 }
 
 function unpackTXTDatabase(rawDatabase) {                           // This recieves and processes the database.txt text to populate worksArray, then sets readyToBuild
+  console.log("Unpacking")
   rawDatabase = rawDatabase.replace(/"/g,"");                       // delete single " marks added by the database.
   rawDatabase = rawDatabase.replace(/''/g,"\"");                    // replace '' with ", for used intended double quotes
   dataBaseLines = rawDatabase.split(databaseEntryDeliminator);      // break up and populate workArray...
@@ -100,6 +101,7 @@ function unpackTXTDatabase(rawDatabase) {                           // This reci
     let nextWork = new Work(database[i]);
 
     worksArray.push(nextWork);
+    console.log(nextWork);
   }
   readyToBuild = true;
 }
