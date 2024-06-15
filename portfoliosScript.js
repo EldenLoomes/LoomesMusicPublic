@@ -51,6 +51,7 @@ function reload() {                        // clears and repopulates the portfol
 
 
 function checkToBuildPortfolio(callbackToBuildPorfolio) {     // wait for the database.txt GET to return and be loaded into the worksArray...
+    console.log("checkToBuildPortfolio");
     if(!readyToBuild) {
        window.setTimeout(function () {console.log("waiting..."); callbackToBuildPorfolio(callbackToBuildPorfolio)}, 100); /* this checks the flag every 100 milliseconds*/
     } else {
@@ -59,6 +60,7 @@ function checkToBuildPortfolio(callbackToBuildPorfolio) {     // wait for the da
 }
 
 function checkToBuildFeaturedWorks(callbackToBuildFeaturedWorks) {     // wait for the database.txt GET to return and be loaded into the worksArray...
+    console.log("checkToBuildPortfolio");
     if(!readyToBuild) {
        window.setTimeout(function () {console.log("waiting..."); callbackToBuildFeaturedWorks(callbackToBuildFeaturedWorks)}, 100); /* this checks the flag every 100 milliseconds*/
     } else {
