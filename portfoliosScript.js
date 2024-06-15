@@ -1,4 +1,3 @@
-//console.log("boop?")
 let database = [];                                            // the array, chopped up from the input database.txt of works. workArray should be interogated for work data, as it stores proper 'Work' objects.
 let worksArray = [];                                          // the core array of works. This should, after the inital load, always contain all the the works in the full portfolio. [TODO: could this be cached?]
 let readyToBuild = false;                                     // changes to true once the workArray is completely built and ready for rendering. checkToBuildPortfolio() runs constantly until true.
@@ -9,7 +8,7 @@ let singleWork = "";
 
 let lastMiniWorkWasNorm = false;
 
-let theURLStem = window.location.origin + "/WebTest/";
+let theURLStem = window.location.origin + "/LoomesMusicPublic/";
 
 const databaseColDeliminator = "\t";                                // what character separates the columns of the database.txt
 const databaseEntryDeliminator = "\n";                              // what character separates the rows of the database.txt
