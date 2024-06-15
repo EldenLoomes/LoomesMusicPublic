@@ -1,4 +1,4 @@
-console.log("boop?")
+//console.log("boop?")
 let database = [];                                            // the array, chopped up from the input database.txt of works. workArray should be interogated for work data, as it stores proper 'Work' objects.
 let worksArray = [];                                          // the core array of works. This should, after the inital load, always contain all the the works in the full portfolio. [TODO: could this be cached?]
 let readyToBuild = false;                                     // changes to true once the workArray is completely built and ready for rendering. checkToBuildPortfolio() runs constantly until true.
@@ -26,7 +26,7 @@ databaseRequest.send();
 window.onload = function() {                                  // when the html loads...
   console.log("OnLoad");
   let urlParams = new URLSearchParams(location.search);       //                        ...extract the url parameters "?search=[SEARCHTEXT]&who=[COMPOSER]"
-  console.log(urlParams);
+
   if (urlParams.get('who') == "Ben") {                        // N.B.: composer != who. The url uses the shortened name for elegance.
     composer = "Benjamin Loomes";
   } else if (urlParams.get('who') == "Elden") {
@@ -34,7 +34,7 @@ window.onload = function() {                                  // when the html l
   } else {
     composer = "";                                            // blank "" <=> either or neither composer.
   }
-
+  console.log(composer);
   singleWork = urlParams.get('work');
 
   searchText = urlParams.get('search');
