@@ -236,7 +236,7 @@ function displayWork(divId, work) {
 
     for (let k = 0; k < thisImagePreviewArray.length; k++) {
         let eachImage = document.createElement("img");
-        eachImage.src = "/images/Previews" + thisImagePreviewArray[k];
+        eachImage.src = "./images/Previews" + thisImagePreviewArray[k];
         eachImage.className = "preview_image";
         imagePreviewBox.appendChild(eachImage);
         eachImage.onclick = function(){showPreviewImage(work,k)};
@@ -307,7 +307,7 @@ function displayWorkMini(divId, work) {
 
   if (thisMiniImage != "" && thisMiniImage != null) {
     let miniImage = document.createElement("img");
-    miniImage.src = "/images/Previews" + thisMiniImage;
+    miniImage.src = "./images/Previews" + thisMiniImage;
     miniImage.className = "mini_image";
     if (lastMiniWorkWasNorm) { //flips the flex direction with each item
       miniImage.classList.add("anti_mini_fade");
@@ -494,7 +494,7 @@ function updateComposer(clickedOn) {
 }
 
 function loadSearchPage(thisSearch) {
-  let searchURL = "/portfolios";
+  let searchURL = "./portfolios";
   if (thisSearch != "" && thisSearch != null && composer != "") {
     searchURL += "?search=" + thisSearch + "&";
     if (composer == "Benjamin Loomes") searchURL += "who=Ben";
@@ -586,7 +586,7 @@ function showPreviewImage(work,page) {
 
   let leftPreviewArrow = document.createElement("div");
   let leftPreviewArrowIcon = document.createElement("img");
-  leftPreviewArrowIcon.src = "/images/pictures/leftarrowsmall.png";
+  leftPreviewArrowIcon.src = "./images/pictures/leftarrowsmall.png";
   //if (bigPreview) leftPreviewArrow.className = "preview_arrow_big";
   //else
   leftPreviewArrow.className = "preview_arrow_small";
@@ -599,7 +599,7 @@ function showPreviewImage(work,page) {
 
 
   let largeImage = document.createElement("img");
-  largeImage.src = "/images/Previews" + work.imagePreviewArray[page];
+  largeImage.src = "./images/Previews" + work.imagePreviewArray[page];
   if (bigPreview) largeImage.id = "preview_image_expanded_small_newbig"// OLD "preview_image_expanded_big";
   else largeImage.id = "preview_image_expanded_small";
   largeImage.onclick = function() {
@@ -612,7 +612,7 @@ function showPreviewImage(work,page) {
 
   let rightPreviewArrow = document.createElement("div");
   let rightPreviewArrowIcon = document.createElement("img");
-  rightPreviewArrowIcon.src = "/images/pictures/rightarrowsmall.png";
+  rightPreviewArrowIcon.src = "./images/pictures/rightarrowsmall.png";
   //if (bigPreview) rightPreviewArrow.className = "preview_arrow_big";
   //else
   rightPreviewArrow.className = "preview_arrow_small";
@@ -639,7 +639,7 @@ function showPreviewImage(work,page) {
 
   closeX = document.createElement("img");
   closeX.style = "margin: 0; font-size: 0.9rem; cursor: pointer; text-align: center;";
-  closeX.src = "/images/pictures/closebutton.png"
+  closeX.src = "./images/pictures/closebutton.png"
   //let closeX = document.createElement("p");
   //closeX.style = "margin: 0; font-size: 0.9rem; cursor: pointer; text-align: center;";  //closeX.appendChild(document.createTextNode("X"));
   closeButton.appendChild(closeX);
