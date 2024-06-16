@@ -1,0 +1,23 @@
+#ph_header {
+  padding-top:100px;
+  width: 60%;
+  margin-left: 20%;
+  margin-right: 20%;
+  height: 200px;
+}
+#ph_title {
+  font-size: 2.5rem;
+  padding: 0;
+  margin: 0;
+}
+#ph_body {
+  width: 60%;
+  margin-left: 20%;
+  margin-right: 20%;
+  font-size: 1.2rem;
+}
+#ph_subtitle {
+  font-size: 2rem;
+  margin-top: 10px;
+  font-style: italic;
+}
