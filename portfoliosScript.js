@@ -23,7 +23,6 @@ databaseRequest.onreadystatechange = function() {
 databaseRequest.send();
 
 window.onload = function() {                                  // when the html loads...
-  say("Onload");
   let urlParams = new URLSearchParams(location.search);       //                        ...extract the url parameters "?search=[SEARCHTEXT]&who=[COMPOSER]"
 
   if (urlParams.get('who') == "Ben") {                        // N.B.: composer != who. The url uses the shortened name for elegance.
@@ -35,9 +34,6 @@ window.onload = function() {                                  // when the html l
   }
   singleWork = urlParams.get('work');
   searchText = urlParams.get('search');
-
-  say(window.location.href.split("?")[0]);
-  say(theURLStem + "portfolios");
 
   if (window.location.href.split("?")[0] == theURLStem + "portfolios") checkToBuildPortfolio(checkToBuildPortfolio);               // start waiting for the async (?) GET for the database to return.
   else if (window.location.href.split("?")[0] == theURLStem) checkToBuildFeaturedWorks(checkToBuildFeaturedWorks);
@@ -52,7 +48,6 @@ function reload() {                        // clears and repopulates the portfol
 
 
 function checkToBuildPortfolio(callbackToBuildPorfolio) {     // wait for the database.txt GET to return and be loaded into the worksArray...
-    say("trying to build...");
     if(!readyToBuild) {
        window.setTimeout(function () {console.log("waiting..."); callbackToBuildPorfolio(callbackToBuildPorfolio)}, 100); /* this checks the flag every 100 milliseconds*/
     } else {
