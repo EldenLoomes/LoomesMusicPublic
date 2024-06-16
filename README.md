@@ -1,1 +1,1 @@
-This is a test repository for me to play around with GitHub Pages.
+This is a repository storing the code for loomesmusic.com, on GitHub Pages.
