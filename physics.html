@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
   <head>
     <title>Elden Loomes - Physics</title>
@@ -5,6 +6,18 @@
     <link  rel="stylesheet" href="./style.css"></link>
     <link  rel="stylesheet" href="./physics_style.css"></link>
     <link rel="stylesheet" href="https://use.typekit.net/kjz0ngo.css">
+
+
+    <!-- See https://katex.org/docs/ for maths -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.25/dist/katex.min.css" integrity="sha384-WcoG4HRXMzYzfCgiyfrySxx90XSl2rxY5mnVY5TwtWE6KLrArNKn0T/mOgNL0Mmi" crossorigin="anonymous">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.25/dist/katex.min.js" integrity="sha384-J+9dG2KMoiR9hqcFao0IBLwxt6zpcyN68IgwzsCSkbreXUjmNVRhPFTssqdSGjwQ" crossorigin="anonymous"></script>
+
+    <!-- The loading of KaTeX is deferred to speed up page rendering -->
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.25/dist/katex.min.js" integrity="sha384-J+9dG2KMoiR9hqcFao0IBLwxt6zpcyN68IgwzsCSkbreXUjmNVRhPFTssqdSGjwQ" crossorigin="anonymous"></script>
+
+    <!-- To automatically render math in text elements, include the auto-render extension: -->
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.25/dist/contrib/auto-render.min.js" integrity="sha384-hCXGrW6PitJEwbkoStFjeJxv+fSOOQKOPbJxSfM6G5sWZjAyWhXiTIIAmQqnlLlh" crossorigin="anonymous"
+        onload="renderMathInElement(document.body);"></script>
   </head>
   <body>
     <div id="ph_header">
@@ -14,7 +27,18 @@
       <p id="ph_subtitle">&mdash; Physicist, Composer</p>
       <em>For my music, see <a href="./">here</a></em>
       <p>Elden is a Ph.D. student at the University of Sydney, under the supervision of Archil Kobakhidze. He studies theoretical high-energy physics, with his principle interests lying in non-perturbative effects in gauge field theories, quantum gravity and their interface on the event horizons of black holes.</p>
+      <p>Currently Elden is thinking about:
+        <ul>
+          <li>Electromagnetic instantons around Euclidean black holes</li>
+          <li>Topology and edge modes of <q>calorons</q>, periodic instanton in quantum chromodynamics at non-zero temperature.</li>
+          <li>Regularisation and gauge anomaly.</li>
+          <li>Dualities in higher-form gauge theories.</li>
+        </ul>
+      </p>
       <h2><em>More here soon!</em></h2>
+      <p>This is a test equation using <em>KaTeX</em></p>
+      $$Q = \frac{1}{16\pi^2}\int\!\mathrm{d}^4x\, \mathrm{tr}\,\varepsilon^{\mu\nu\rho\sigma}F_{\mu\nu}F_{\rho\sigma}$$
     </div>
+
   </body>
 </html>

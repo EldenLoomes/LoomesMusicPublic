@@ -21,3 +21,24 @@
   margin-top: 10px;
   font-style: italic;
 }
+
+@font-face {
+  font-family: "Computer Modern";
+  src: url('fonts/cmunrm.otf');
+}
+
+@font-face {
+  font-family: "Computer Modern";
+  src: url('fonts/cmunrb.otf');
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: "Computer Modern";
+  src: url('fonts/cmunti.otf');
+  font-style: italic;
+}
+
+body {
+  font-family: "Computer Modern", Garamond, serif;
+}
