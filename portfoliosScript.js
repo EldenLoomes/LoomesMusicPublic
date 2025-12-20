@@ -10,14 +10,13 @@ let lastMiniWorkWasNorm = false;
 
 let theURLStem = window.location.origin + "/";
 
-const databaseColDeliminator = "\t";                                // what character separates the columns of the database.txt
 const databaseEntryDeliminator = "\n";                              // what character separates the rows of the database.txt
 
-let databaseRequest = new XMLHttpRequest();                   // GETs the database.txt from the node server.
-databaseRequest.open('GET', './database.txt');
+let databaseRequest = new XMLHttpRequest();                   // GETs the database.csv from the node server.
+databaseRequest.open('GET', './database.csv');
 databaseRequest.onreadystatechange = function() {
   if (databaseRequest.readyState === 4){
-    unpackTXTDatabase(databaseRequest.responseText);          // ...when it returns, start unpacking it.
+    unpackCSVDatabase(databaseRequest.responseText);          // ...when it returns, start unpacking it.
   }
 }
 databaseRequest.send();
@@ -84,12 +83,33 @@ function buildSingleWork() {
   }
 }
 
-function unpackTXTDatabase(rawDatabase) {                           // This recieves and processes the database.txt text to populate worksArray, then sets readyToBuild
-  rawDatabase = rawDatabase.replace(/"/g,"");                       // delete single " marks added by the database.
-  rawDatabase = rawDatabase.replace(/''/g,"\"");                    // replace '' with ", for used intended double quotes
+function splitLine(databaseLine) {
+  //console.log(databaseLine)
+  var lineParts = databaseLine.split(",")                   // Split it by commas
+  var lineToReturn = []
+  var currently_concatenating = false // If a given part has exactly one quote mark in it, it should be concatenated with every following part until another quote mark is found
+  for (part of lineParts) {
+    formatted_part = part.replaceAll("\"", "").replaceAll("`", "\"")
+    if (currently_concatenating) {
+      lineToReturn[lineToReturn.length - 1] = lineToReturn[lineToReturn.length - 1].concat(",").concat(formatted_part);
+    } else {
+      lineToReturn.push(formatted_part);
+    }
+
+    if ((part.match(/"/g) || []).length == 1) {
+      currently_concatenating = !currently_concatenating
+    }
+  }
+
+  return (lineToReturn);
+}
+
+function unpackCSVDatabase(rawDatabase) {                           // This recieves and processes the database.txt text to populate worksArray, then sets readyToBuild
+  //rawDatabase = rawDatabase.replace(/"/g,"");                       // delete single " marks added by the database.
+  //rawDatabase = rawDatabase.replace(/''/g,"\"");                    // replace '' with ", for used intended double quotes
   dataBaseLines = rawDatabase.split(databaseEntryDeliminator);      // break up and populate workArray...
   for (let i = 0; i < dataBaseLines.length; i++) {
-    database.push(dataBaseLines[i].split(databaseColDeliminator));  // ...we now have database[work][component]
+    database.push(splitLine(dataBaseLines[i]));  // ...we now have database[work][component]
   }
   for (let i = 1; i < database.length; i++) {                       // ...skipping the first line of the database, with the column descriptions
         if (database[i] === [""] || database[i][0] === "" || database[i] == null || database[i] == undefined) continue; //skips empty lines
